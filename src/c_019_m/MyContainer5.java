@@ -36,7 +36,7 @@ public class MyContainer5 {
             System.out.println("t2 启动");
             if (container.size() != 5) {
                 try {
-                    latch.await();
+                    latch.await();// 门栓的等待不需要锁定任何对象
                     // 指定等待时间
                     //latch.await(5000, TimeUnit.MILLISECONDS);
                 } catch (InterruptedException e) {
