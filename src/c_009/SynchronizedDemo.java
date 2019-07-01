@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * 通俗来说：当线程请求一个由其它线程持有的对象锁时，该线程会阻塞，而当线程请求由自己持有的对象锁时，如果该锁是重入锁，请求就会成功，否则阻塞。
  *
  */
-public class T {
+public class SynchronizedDemo {
 
     synchronized void m1() {
         System.out.println("m1 start ");
@@ -39,7 +39,7 @@ public class T {
     @Test
     public void test(){
 
-        T t = new T();
+        SynchronizedDemo t = new SynchronizedDemo();
 
         new Thread(() -> t.m1()).start();
     }
