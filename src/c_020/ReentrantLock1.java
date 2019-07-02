@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 可重入锁
+ *
  * ReentrantLock可以用于替代synchronized
  * 本例中由于m1锁定this，只有m1执行完毕的时候，m2才能执行
  * 这里复习synchronized最原始的定义

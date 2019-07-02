@@ -7,7 +7,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * ReentrantLock 和 synchronized 的区别
  * 
- * ReentrantLock 可以进行尝试锁定 tryLock 这样无法锁定、或者在指定时间内无法锁定，线程可以决定是否继续等待
+ * ReentrantLock 可以进行尝试锁定， tryLock
+ * 这样无法锁定、或者在指定时间内无法锁定，线程可以决定是否继续等待
  */
 public class ReentrantLock3 {
 
@@ -34,7 +35,7 @@ public class ReentrantLock3 {
         // 尝试获取锁，返回true拿到了
         if (lock.tryLock()) {
             // lock.tryLock(5, TimeUnit.SECONDS) // 等5s内还没拿到就返回false
-            System.out.println("m2...");
+            System.out.println("m2...拿到锁了");
         } else {
             System.out.println(" m2 没拿到锁");
         }

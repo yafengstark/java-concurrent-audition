@@ -58,6 +58,7 @@ public class MyContainer3 {
                     if (container.size() == 5) {
                         lock.notify(); // notify 不会释放锁，即便通知t2，t2也获取不到锁
                         // 可以在wait一下，将锁释放，再让t2通知t1继续执行
+                        // 可以注释掉试试
                         try {
                             lock.wait();
                         } catch (InterruptedException e) {
@@ -86,6 +87,11 @@ wait会释放锁，notify不会释放锁
 锁定对象a，调用a.wait() 方法，当前线程就会进入等待状态，然后释放锁。
 当某线程调用 a.notify() / a.notifyAll()， 叫醒在a对象等待的所有线程
 
+
+sleep不释放锁
+
+
+平时不要用notify wait 易出错
 
 
  */

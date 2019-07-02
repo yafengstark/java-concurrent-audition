@@ -7,8 +7,10 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * ReentrantLock 和 synchronized 的区别
  * 
- * ReentrantLock 可以调用 lockInterruptibly方法，可以对线程interrupt方法做出响应
+ * ReentrantLock 可以调用 lockInterruptibly方法，
+ * 可以对线程interrupt方法做出响应
  * 在一个线程等待锁的过程中，可以被interrupt方法打断等待。
+ *
  */
 public class ReentrantLock4 {
 

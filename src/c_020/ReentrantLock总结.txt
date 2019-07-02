@@ -5,3 +5,6 @@ ReentrantLock 与 synchronized：
 3. tryLock 非阻塞锁，可以设置等待时间
 4. lockInterruptibly 可以中断等待
 5. 可以设置公平锁
+
+Reentrant：可重入的
+
