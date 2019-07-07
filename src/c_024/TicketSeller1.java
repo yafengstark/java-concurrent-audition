@@ -10,6 +10,8 @@ import java.util.List;
  * 
  * 分析下面的程序可能会产生哪些问题？ 
  * 重复销售？超量销售？
+ * 都可能出现
+ *
  */
 public class TicketSeller1 {
 
@@ -17,7 +19,7 @@ public class TicketSeller1 {
     
     static {
         for (int i = 0; i < 1000; i++) {
-            tickets.add("票-" + i);
+            tickets.add("票 " + i);
         }
     }
 
@@ -25,6 +27,11 @@ public class TicketSeller1 {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 while (tickets.size() > 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println("销售了：" + tickets.remove(0));
                 }
             }).start();

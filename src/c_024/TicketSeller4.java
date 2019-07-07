@@ -12,6 +12,9 @@ import java.util.concurrent.TimeUnit;
  * 分析下面的程序可能会产生哪些问题？
  * <p>
  * 使用同步队列
+ *
+ * 效率最高的
+ *
  */
 public class TicketSeller4 {
 

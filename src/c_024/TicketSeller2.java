@@ -13,6 +13,9 @@ import java.util.concurrent.TimeUnit;
  * 分析下面的程序可能会产生哪些问题？ 
  * 
  * 使用Vector同步容器替换List容器
+ *
+ * Vector: 同步容器
+ *
  */
 public class TicketSeller2 {
 
@@ -20,7 +23,7 @@ public class TicketSeller2 {
     
     static {
         for (int i = 0; i < 1000; i++) {
-            tickets.add("票-" + i);
+            tickets.add("票 " + i);
         }
     }
 
