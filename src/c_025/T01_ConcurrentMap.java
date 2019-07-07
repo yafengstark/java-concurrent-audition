@@ -13,9 +13,9 @@ public class T01_ConcurrentMap {
     public static void main(String[] args) {
 
         //Map<String, String> map = new HashMap<>(); 
-        //Map<String, String> map = new Hashtable<>(); // 423  每次加锁，都锁一个对象
+//        Map<String, String> map = new Hashtable<>(); // 423  每次加锁，都锁一个对象
         //Map<String, String> map = new ConcurrentHashMap<>(); // 309，加的是分段所，将容器分为16段，每段都有一个锁 segment; 1.8以后 使用 Node + synchronized+CAS
-        Map<String, String> map = new ConcurrentSkipListMap<>(); // 317  并发且排序，插入效率较低，但是读取很快
+        Map<String, String> map = new ConcurrentSkipListMap<>(); // 317  并发且排序时使用，插入效率较低，但是读取很快。跳表数据结构
     
         Random r = new Random();
         Thread[] ths = new Thread[100];
@@ -31,7 +31,7 @@ public class T01_ConcurrentMap {
                 latch.countDown();
             }, "t" + i);
         }
-        Arrays.asList(ths).forEach(Thread::start);
+        Arrays.asList(ths).forEach(Thread::start);// 启动
 
         try {
             latch.await();
