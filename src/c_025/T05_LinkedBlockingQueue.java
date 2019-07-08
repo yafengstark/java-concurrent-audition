@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * 使用阻塞同步队列 LinkedBlockingQueue 完成生产者消费者模式
  * 使用场景较多。
  *
- * 
+ *
  */
 public class T05_LinkedBlockingQueue {
 

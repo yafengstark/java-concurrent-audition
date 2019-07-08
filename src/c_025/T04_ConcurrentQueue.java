@@ -15,6 +15,7 @@ public class T04_ConcurrentQueue {
 
         for (int i = 0; i < 10; i++) {
             queue.offer("a" + i); // 有返回值，返回false代表没有加入成功，true 代表成功，并且此方法不会阻塞
+            // 类似add, add有一些问题，会抛异常
         }
 
         System.out.println(queue);

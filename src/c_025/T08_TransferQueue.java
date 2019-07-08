@@ -27,11 +27,15 @@ public class T08_TransferQueue {
 
         // 再让生产者线程生产
         try {
-            mq.transfer("aaa");  // put add 都不会阻塞，会添加到容器中，只有transfer才有此种功能（等待消费者直接获取），所以transfer是有容量的
+            mq.transfer("aaa");
+            // put add 都不会阻塞，会添加到容器中，
+            // 只有transfer才有此种功能（等待消费者直接获取），所以transfer是有容量的
+            // transfer会阻塞的
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
+        // 先起生产者再起消费者，不会执行下面代码
         /*new Thread(() -> {
             try {
                 System.out.println(mq.take());

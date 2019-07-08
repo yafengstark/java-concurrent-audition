@@ -8,6 +8,8 @@ import java.util.concurrent.TransferQueue;
 /**
  * SynchronousQueue,
  * 一种特殊的TransferQueue，容量为0
+ *
+ * 容量为0的TransferQueue
  * 
  * TransferQueue是有容量的，可以通过add/put等方法向队列中加入元素
  * 但是SynchronousQueue是灭有

@@ -22,10 +22,10 @@ Map/Set:
     高并发
         Queue：
             ConcurrentLinkedQueue 非阻塞同步队列
-            BlockQueue
-                LinkedBlockingQueue
-                ArrayBlockingQueue 
-                TransferQueue
-                SynchronousQueue
-            DelayQueue
+            BlockQueue 阻塞式队列
+                LinkedBlockingQueue 无界队列
+                ArrayBlockingQueue 有界队列
+                TransferQueue 直接交付
+                SynchronousQueue 特殊的TransferQueue
+            DelayQueue 执行定时程序
 
