@@ -24,6 +24,8 @@ public class MyContainer1<T> {
     public synchronized void put(T t) {
         while (MAX == count) { // 如果容量最大，释放锁等待    ///【这里为什么使用while，而不是使用if？？？】
             try {
+                // 为什么用while,
+                // while一般与wait一起用
                 this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -49,6 +51,12 @@ public class MyContainer1<T> {
         count--;
         this.notifyAll(); // 通知生产者线程生产
         return t;
+    }
+
+
+    public static void main(String[] args){
+
+
     }
 }
 

@@ -20,6 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 2. Condition
  * <p>
  * <p>
+ *
  * 使用Lock和Condition实现，可以精确唤醒某些线程
  */
 public class MyContainer2<T> {
@@ -29,7 +30,7 @@ public class MyContainer2<T> {
     private int count = 0;
 
     private Lock lock = new ReentrantLock();
-    private Condition producer = lock.newCondition();
+    private Condition producer = lock.newCondition(); // 关键
     private Condition consumer = lock.newCondition();
 
 
@@ -39,6 +40,7 @@ public class MyContainer2<T> {
             while (MAX == count) {
                 producer.await();
             }
+            System.out.println("添加了"+ t);
             list.add(t);
             ++count;
             consumer.signalAll();
@@ -61,6 +63,7 @@ public class MyContainer2<T> {
             lock.unlock();
         }
         T t = list.removeFirst();
+
         count--;
         producer.signalAll();
         return t;
@@ -72,13 +75,14 @@ public class MyContainer2<T> {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 for (int j = 0; j < 5; j++) {
-                    System.out.println(c.get());
+                    System.out.println("消费了" + c.get());
                 }
             }, "c_" + i ).start();
         }
 
         try {
-            TimeUnit.SECONDS.sleep(1);
+//            TimeUnit.SECONDS.sleep(1);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -86,6 +90,7 @@ public class MyContainer2<T> {
         for (int i = 0; i < 2; i++) {
             new Thread(()->{
                 for (int j = 0; j < 2; j++) {
+                    System.out.println("添加了元素");
                     c.put(Thread.currentThread().getName() + " " + j);
                 }
             }, "p_" + i).start();
