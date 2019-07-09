@@ -2,15 +2,14 @@ package c_026;
 
 import java.io.IOException;
 import java.util.Random;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveAction;
-import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * ThreadPoolExecutor
  * 线程池的实现原理，除了ForkJoinPool与WorkStealingPool线程池，其他线程池大部分线程池背后都是ThreadPoolExecutor
- * 
+ *
+ * 比如
+ *
  * 自定义线程池，ThreadPoolExecutor
  */
 public class T13_ThreadPoolExecutor {
@@ -26,7 +25,8 @@ public class T13_ThreadPoolExecutor {
     具体查看每个线程池
      */
 
+
     public static void main(String[] args) {
-        
+        ExecutorService service = Executors.newFixedThreadPool(5);
     }
 }

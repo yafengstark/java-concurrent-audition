@@ -20,6 +20,7 @@ public class T05_ThreadPool {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName());
             });
         }
         System.out.println(service); // [Running, pool size = 5, active threads = 5, queued tasks = 1, completed tasks = 0]
@@ -30,11 +31,13 @@ public class T05_ThreadPool {
         // completed task = 0 完成执行的任务数量
         
         // 关闭线程池
-        service.shutdown(); // 未执行完毕,不会停止,只会进入停止中状态
-        System.out.println(service.isTerminated()); // false 是否结束
-        System.out.println(service.isShutdown()); // true 状态是否关闭
-        System.out.println(service);  //java.util.concurrent.ThreadPoolExecutor@3b9a45b3[Shutting down, pool size = 5, active threads = 5, queued tasks = 1, completed tasks = 0]
-        
+        service.shutdown(); // 未执行完毕,不会停止,只会进入停止中状态,等所有线程执行完再关闭
+//        service.shutdownNow();
+        System.out.println(service.isTerminated()); // false， 任务是否结束,
+        System.out.println(service.isShutdown()); // true 状态是否关闭，正在关闭中
+        System.out.println(service);
+        //java.util.concurrent.ThreadPoolExecutor@3b9a45b3[Shutting down, pool size = 5, active threads = 5, queued tasks = 1, completed tasks = 0]
+        // 注意 Shutting down, pool
 
         TimeUnit.SECONDS.sleep(5); // 5s 后肯定执行完成了
 

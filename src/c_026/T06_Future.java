@@ -10,10 +10,12 @@ public class T06_Future {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // 未来任务, 既是Runnable 也是 Future
+        // lambda代替callable
         FutureTask<Integer> task = new FutureTask<>(() -> {
             TimeUnit.MILLISECONDS.sleep(500);
             return 100;
         });
+
         new Thread(task).start();
 
         System.out.println(task.get()); // 阻塞等待任务执行完成, 获取到返回值

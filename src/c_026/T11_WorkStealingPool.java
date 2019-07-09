@@ -10,6 +10,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * WorkStealingPool
  * 工作窃取线程池
+ *
+ * 主动找活干
  * 
  * 假设共有三个线程同时执行, A, B, C
  * 当A,B线程池尚未处理任务结束,而C已经处理完毕,则C线程会从A或者B中窃取任务执行,这就叫工作窃取

@@ -9,7 +9,9 @@ import java.util.concurrent.*;
  * T12_ForkJoinPool  分而治之
  * Fork: 分叉
  * Join: 合并
- * 
+ *
+ * 类似Map-Reduce
+ *
  * 将一个任务拆分多个任务执行(可以无限切分),然后将结果合并
  * 
  * 比如大量的并行计算, 如下: 求100_0000个数字之和, 使用多线程
@@ -33,6 +35,7 @@ public class T12_ForkJoinPool {
     /**
      * RecursiveAction: 递归操作 没有返回值
      * RecursiveTask: 递归操作,有返回值
+     *
      */
     static class AddTask extends RecursiveAction {
         
@@ -64,6 +67,9 @@ public class T12_ForkJoinPool {
         }
     }
 
+    /**
+     * 有返回值
+     */
     static class AddTask2 extends RecursiveTask<Long> {
 
         int start, end;
@@ -96,12 +102,12 @@ public class T12_ForkJoinPool {
 
     // 运行
     public static void main(String[] args) throws IOException {
-        ForkJoinPool fjp = new ForkJoinPool();
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
         AddTask2 task = new AddTask2(0, nums.length);
-        fjp.execute(task);
+        forkJoinPool.execute(task);
         System.out.println(task.join());
         
-        //System.in.read();
+//        System.in.read();
     }
 
 }
