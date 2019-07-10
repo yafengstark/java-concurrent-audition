@@ -10,6 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * ReentrantLock 可以指定为公平锁，synchronized 是不公平锁
  * 公平锁，先获取锁的人，在锁被释放时，优先获得锁
  * 不公平锁，无论先后，线程调度器将会随机给某个线程锁，不用计算线程时序，效率较高
+ *
+ * 用蹲坑做类比
+ *
  */
 public class ReentrantLock5 extends Thread {
 

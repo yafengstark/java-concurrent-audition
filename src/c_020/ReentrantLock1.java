@@ -10,6 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * ReentrantLock可以用于替代synchronized
  * 本例中由于m1锁定this，只有m1执行完毕的时候，m2才能执行
  * 这里复习synchronized最原始的定义
+ *
+ * synchronized 效率已经提升了。
+ *
  */
 public class ReentrantLock1 {
     

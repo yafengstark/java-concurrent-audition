@@ -5,3 +5,6 @@ ExecutorService 一个服务,在后台一直运行,等待任务抛入(submit),�
 Executors 是一个用于操作上面对象的工具类和工厂类
 ThreadPool 线程池
 Future 未来,未来的结果
+
+fixed cached single schedule workstealing forkjoin 六种线程池
+

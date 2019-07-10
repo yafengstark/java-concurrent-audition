@@ -4,6 +4,14 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * ThreadLocal 线程局部变量
+ *
+ * 用空间换时间。
+ *
+ * 效率上更高一点。
+ *
+ * ThreadLocal可能会导致内存泄漏
+ *
+ *
  */
 public class ThreadLocal2 {
 
